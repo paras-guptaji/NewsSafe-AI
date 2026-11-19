@@ -1,21 +1,10 @@
-# Multi-stage Dockerfile for NewsSafe AI
-
-# Stage 1: Build React Frontend
-FROM node:18-alpine AS frontend-builder
-WORKDIR /app/frontend
-COPY frontend/package*.json ./
-RUN npm install
-COPY frontend/ ./
-RUN npm run build
-
-# Stage 2: Python Backend Environment
+# Single-stage lightweight Dockerfile for NewsSafe AI
 FROM python:3.11-slim
 WORKDIR /app
 
 # Install build dependencies for lxml and trafilatura
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
-    g++ \
     libxml2-dev \
     libxslt-dev \
     curl \
@@ -25,11 +14,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY backend/requirements.txt ./backend/
 RUN pip install --no-cache-dir -r backend/requirements.txt
 
-# Copy backend files
+# Copy backend application
 COPY backend/ ./backend/
 
-# Copy built frontend assets to frontend/dist so FastAPI serves them
-COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
+# Copy pre-built production frontend assets
+COPY frontend/dist/ ./frontend/dist/
 
 ENV PORT=8000
 EXPOSE 8000

@@ -4,9 +4,11 @@ services:
     runtime: python
     plan: free
     region: oregon
-    buildCommand: "cd frontend && npm install && npm run build && cd ../backend && pip install -r requirements.txt"
+    buildCommand: "pip install -r backend/requirements.txt"
     startCommand: "cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT"
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
       - key: NEWS_API_KEY
         value: 781875ad47dd4666808d8b9fc48f3d96
       - key: GEMINI_API_KEY

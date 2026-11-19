@@ -11,7 +11,7 @@ venv/
 env/
 .env
 *.egg-info/
-dist/
+/dist/
 build/
 
 # SQLite Database
@@ -21,7 +21,7 @@ build/
 
 # Node / React
 node_modules/
-frontend/dist/
+# frontend/dist/ is tracked for production deployment on Render
 frontend/.env
 
 # IDE
