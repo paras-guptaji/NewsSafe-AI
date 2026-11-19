@@ -1,0 +1,42 @@
+# .gitignore for NewsSafe AI
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.env
+*.egg-info/
+dist/
+build/
+
+# SQLite Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Node / React
+node_modules/
+frontend/dist/
+frontend/.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# API Keys - never commit!
+.env
+backend/.env
+frontend/.env
