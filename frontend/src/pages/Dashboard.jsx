@@ -98,73 +98,73 @@ export default function Dashboard() {
   const pending = stats?.pending ?? 0
 
   return (
-    <div className="max-w-7xl mx-auto space-y-7 pb-10">
+    <div className="max-w-7xl mx-auto space-y-5 sm:space-y-7 pb-10">
 
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-          <p className="text-sm text-gray-500 mt-0.5">AI-powered news classification and summarization</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Dashboard</h1>
+          <p className="text-xs sm:text-sm text-gray-500 mt-0.5">AI-powered news classification and summarization</p>
         </div>
         <button
           onClick={handleRefresh}
           disabled={isRefreshing}
-          className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
+          className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white text-xs sm:text-sm font-medium px-3.5 py-2 rounded-lg transition-colors shadow-xs w-full sm:w-auto"
         >
-          <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`} />
+          <RefreshCw className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${isRefreshing ? 'animate-spin' : ''}`} />
           {isRefreshing ? 'Refreshing...' : 'Refresh News'}
         </button>
       </div>
 
       {/* Notification */}
       {notification && (
-        <div className="flex items-center gap-2 text-sm text-green-700 bg-green-50 border border-green-200 px-4 py-3 rounded-lg">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-green-700 bg-green-50 border border-green-200 px-3.5 py-2.5 rounded-lg">
           <CheckCircle className="w-4 h-4 flex-shrink-0" />
-          <span>{notification}</span>
+          <span className="flex-1">{notification}</span>
           <button onClick={() => setNotification(null)} className="ml-auto text-green-500 hover:text-green-700 text-xs">Dismiss</button>
         </div>
       )}
       {error && (
-        <div className="flex items-center gap-2 text-sm text-red-700 bg-red-50 border border-red-200 px-4 py-3 rounded-lg">
+        <div className="flex items-center gap-2 text-xs sm:text-sm text-red-700 bg-red-50 border border-red-200 px-3.5 py-2.5 rounded-lg">
           <AlertCircle className="w-4 h-4 flex-shrink-0" />
-          <span>{error}</span>
+          <span className="flex-1">{error}</span>
           <button onClick={() => setError(null)} className="ml-auto text-red-500 hover:text-red-700 text-xs">Dismiss</button>
         </div>
       )}
 
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-white border border-gray-200 rounded-xl p-4">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-medium text-gray-500">Total Articles</span>
-            <Newspaper className="w-4 h-4 text-gray-400" />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+        <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 shadow-2xs">
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <span className="text-[11px] sm:text-xs font-medium text-gray-500">Total Articles</span>
+            <Newspaper className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-gray-400" />
           </div>
-          <p className="text-2xl font-bold text-gray-900">{total}</p>
-          <p className="text-xs text-gray-400 mt-1">In database</p>
+          <p className="text-xl sm:text-2xl font-bold text-gray-900">{total}</p>
+          <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5">In database</p>
         </div>
-        <div className="bg-white border border-gray-200 rounded-xl p-4">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-medium text-gray-500">18+ Restricted</span>
-            <ShieldAlert className="w-4 h-4 text-red-400" />
+        <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 shadow-2xs">
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <span className="text-[11px] sm:text-xs font-medium text-gray-500">18+ Restricted</span>
+            <ShieldAlert className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-400" />
           </div>
-          <p className="text-2xl font-bold text-red-600">{adult}</p>
-          <p className="text-xs text-gray-400 mt-1">Mature content</p>
+          <p className="text-xl sm:text-2xl font-bold text-red-600">{adult}</p>
+          <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5">Mature content</p>
         </div>
-        <div className="bg-white border border-gray-200 rounded-xl p-4">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-medium text-gray-500">Below 18 Safe</span>
-            <ShieldCheck className="w-4 h-4 text-green-400" />
+        <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 shadow-2xs">
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <span className="text-[11px] sm:text-xs font-medium text-gray-500">Below 18 Safe</span>
+            <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-400" />
           </div>
-          <p className="text-2xl font-bold text-green-600">{below}</p>
-          <p className="text-xs text-gray-400 mt-1">Family friendly</p>
+          <p className="text-xl sm:text-2xl font-bold text-green-600">{below}</p>
+          <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5">Family friendly</p>
         </div>
-        <div className="bg-white border border-gray-200 rounded-xl p-4">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-medium text-gray-500">Pending</span>
-            <Clock className="w-4 h-4 text-yellow-400" />
+        <div className="bg-white border border-gray-200 rounded-xl p-3 sm:p-4 shadow-2xs">
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <span className="text-[11px] sm:text-xs font-medium text-gray-500">Pending</span>
+            <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400" />
           </div>
-          <p className="text-2xl font-bold text-yellow-600">{pending}</p>
-          <p className="text-xs text-gray-400 mt-1">Awaiting analysis</p>
+          <p className="text-xl sm:text-2xl font-bold text-yellow-600">{pending}</p>
+          <p className="text-[10px] sm:text-xs text-gray-400 mt-0.5">Awaiting analysis</p>
         </div>
       </div>
 

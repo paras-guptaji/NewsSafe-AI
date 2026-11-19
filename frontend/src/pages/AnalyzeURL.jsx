@@ -91,8 +91,8 @@ export default function AnalyzeURL() {
     <div className="max-w-3xl mx-auto space-y-6 pb-10">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Analyze News Article</h1>
-        <p className="text-sm text-gray-500 mt-1">
+        <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Analyze News Article</h1>
+        <p className="text-xs sm:text-sm text-gray-500 mt-1">
           Paste a news article URL and let AI analyze its age suitability and generate a summary.
         </p>
       </div>
@@ -144,7 +144,7 @@ export default function AnalyzeURL() {
         </div>
 
         {/* Form */}
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {tab === 'url' ? (
             <form onSubmit={handleAnalyzeURL} className="space-y-4">
               <div>

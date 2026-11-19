@@ -219,7 +219,7 @@ export default function AllNews() {
           </div>
 
           {/* Age Classification Filter Pills */}
-          <div className="flex items-center gap-1 p-1 bg-gray-100 rounded-lg">
+          <div className="flex items-center gap-1 p-1 bg-gray-100 rounded-lg overflow-x-auto no-scrollbar w-full sm:w-auto">
             {[
               { id: 'all', label: 'All' },
               { id: 'below18', label: 'Below 18' },
@@ -239,9 +239,9 @@ export default function AllNews() {
                 <button
                   key={tab.id}
                   onClick={() => updateQueryParam('age', tab.id === 'all' ? '' : tab.id)}
-                  className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
+                  className={`px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap flex-shrink-0 transition-colors ${
                     isActive
-                      ? 'bg-white text-gray-900 shadow-xs'
+                      ? 'bg-white text-gray-900 shadow-xs font-semibold'
                       : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >

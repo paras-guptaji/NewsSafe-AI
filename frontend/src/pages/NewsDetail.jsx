@@ -185,9 +185,10 @@ export default function NewsDetail() {
               href={articleUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs font-medium bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 px-3 py-1.5 rounded-lg transition-colors"
+              className="inline-flex items-center gap-1 text-xs font-medium bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 px-2.5 sm:px-3 py-1.5 rounded-lg transition-colors"
             >
-              <span>Original Article</span>
+              <span className="hidden xs:inline">Original Article</span>
+              <span className="xs:hidden">Source</span>
               <ExternalLink className="w-3 h-3" />
             </a>
           )}
@@ -209,8 +210,8 @@ export default function NewsDetail() {
       )}
 
       {/* Article Header & Body */}
-      <div className="bg-white border border-gray-200 rounded-xl p-6 space-y-4">
-        <div className="flex flex-wrap items-center gap-2.5">
+      <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 space-y-4 shadow-2xs">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
           <CategoryBadge category={category} size="lg" />
           {sourceName && (
             <span className="inline-flex items-center gap-1 text-xs text-gray-600 bg-gray-100 px-2.5 py-0.5 rounded-md font-medium">
@@ -226,12 +227,12 @@ export default function NewsDetail() {
           )}
         </div>
 
-        <h1 className="text-xl sm:text-2xl font-bold text-gray-900 leading-snug">
+        <h1 className="text-lg sm:text-2xl font-bold text-gray-900 leading-snug">
           {title}
         </h1>
 
         {imageUrl && !imgError && (
-          <div className="w-full h-72 rounded-lg overflow-hidden bg-gray-100">
+          <div className="w-full h-48 sm:h-72 rounded-lg overflow-hidden bg-gray-100">
             <img
               src={imageUrl}
               alt={title}

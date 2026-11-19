@@ -54,8 +54,8 @@ export default function Bookmarks() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Saved Articles</h1>
-          <p className="text-sm text-gray-500 mt-1">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Saved Articles</h1>
+          <p className="text-xs sm:text-sm text-gray-500 mt-0.5">
             Articles bookmarked for reference and reading.
           </p>
         </div>
