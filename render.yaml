@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: newssafe-ai
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: "cd frontend && npm install && npm run build && cd ../backend && pip install -r requirements.txt"
+    startCommand: "cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: NEWS_API_KEY
+        value: 781875ad47dd4666808d8b9fc48f3d96
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3-flash-preview
+      - key: DATABASE_URL
+        value: sqlite:///./newssafe.db
